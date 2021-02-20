@@ -25,6 +25,11 @@ namespace WebApi
       services.AddDbContext<ApiContext>(opt => opt.UseInMemoryDatabase("weatherDb"));
       services.AddScoped<ApiContext>();
 
+      /*
+      services.AddMvc()
+      .AddFluentValidation();
+      services.AddTransient<FluentValidation.IValidator<WeatherForecast>, WeatherForecastValidator>();
+      */
       services.AddMvc(options =>
       {
         options.Filters.Add(new ModelStateFilter());
